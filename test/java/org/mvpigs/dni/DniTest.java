@@ -1,5 +1,7 @@
 package org.mvpigs.dni;
 
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 import org.junit.Test;
 import static junit.framework.Assert.*;
 
@@ -48,6 +50,33 @@ public class DNITest {
         for (String documento : dniCorrectos) {
             DNI dni = new DNI(documento);
             assertEquals(true, dni.comprobarDNI());
+        }
+
+    }
+
+    @Test
+    public void testRandomDNI() {
+        String dniRandom;
+        TablaAsignacion tabla = new TablaAsignacion();
+        ArrayList<DNI> listaDNI = new ArrayList<DNI>();
+
+        while (listaDNI.size() < 100) {
+            dniRandom = "";
+            for (int i = 0; i < 8; i++) {
+                dniRandom += ThreadLocalRandom.current().nextInt(0, 9);
+            }
+            //Añadimos letra
+            dniRandom += tabla.getTabla()[ThreadLocalRandom.current().nextInt(0, 9)];
+            listaDNI.add(new DNI(dniRandom));
+        }
+
+        System.out.println("Comprobar dni (true = correcto ; false = incorrecto )");
+        for (DNI dni : listaDNI) {
+            System.out.println(dni.getDNI() + " : " + dni.comprobarDNI());
+            if (!dni.comprobarDNI()) {
+                System.out.println("La letra para el dni: " + dni.getDNI() + " deberia ser: "
+                        + tabla.calcularLetra(dni.parteNumerica()));
+            }
         }
 
     }
