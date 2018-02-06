@@ -13,4 +13,12 @@ public class TablaAsignacionTest{
         TablaAsignacion tabla = new TablaAsignacion();
         System.out.println(Arrays.toString(tabla.tabla));
     }
+
+    @Test
+    public void testObtenerLetra() {
+        TablaAsignacion tabla = new TablaAsignacion();
+        assertEquals('G', tabla.getLetra(4));
+        assertEquals('X', tabla.getLetra(10));
+        assertEquals('T', tabla.getLetra(0));
+    }
 }
