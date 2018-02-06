@@ -32,7 +32,7 @@ public class DNI {
     }
 
     public int obtenerResto() {
-        return parteNumerica()%23;
+        return parteNumerica()%tabla.obtenerModulo();
     }
 
     public char obtenerLetra(){
