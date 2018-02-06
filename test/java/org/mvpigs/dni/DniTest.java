@@ -17,9 +17,15 @@ public class DNITest {
     }
 
     @Test
-    public void testParteAlfabetica(){
+    public void testParteAlfabetica() {
         DNI dni = new DNI("43182655V");
         assertEquals('V', dni.parteAlfabetica());
+    }
+
+    @Test
+    public void testObtenerResto() {
+        DNI dni = new DNI("43182655V");
+        assertEquals(17, dni.obtenerResto());
     }
 
 }

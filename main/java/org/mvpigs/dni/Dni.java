@@ -17,13 +17,20 @@ public class DNI {
         return this.dni;
     }
 
+
     // Metodos
 
     public int parteNumerica() {
-        return Integer.parseInt(this.dni.substring(0, 8));
+            return Integer.parseInt(this.dni.substring(0, 8));
     }
 
     public char parteAlfabetica() {
         return this.dni.charAt(8);
     }
+
+    public int obtenerResto() {
+        return parteNumerica()%23;
+    }
+
+
 }
