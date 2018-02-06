@@ -1,7 +1,7 @@
 package org.mvpigs.dni;
 
 public class DNI {
-    String dni;
+    private String dni;
 
     public DNI() {
         this.dni = "";
@@ -30,6 +30,10 @@ public class DNI {
 
     public int obtenerResto() {
         return parteNumerica()%23;
+    }
+
+    public char obtenerLetra(){
+
     }
 
 

@@ -28,4 +28,9 @@ public class DNITest {
         assertEquals(17, dni.obtenerResto());
     }
 
+    @Test
+    public void testObtenerLeta() {
+        DNI dni = new DNI("43182655");    
+        assertEquals('V', dni.obtenerLetra());
+    }
 }
