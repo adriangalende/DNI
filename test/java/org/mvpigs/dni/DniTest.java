@@ -10,4 +10,10 @@ public class DNITest {
         assertEquals(9, dni.getDNI().length());
     }
 
+    @Test
+    public void testParteNumerica() {
+        DNI dni = new DNI("43182655V");
+        assertEquals(43182655, dni.parteNumerica());
+    }
+
 }
