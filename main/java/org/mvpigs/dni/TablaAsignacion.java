@@ -6,4 +6,12 @@ public class TablaAsignacion{
     public char getLetra(int indice) {
         return tabla[indice];
     }
+
+    public int obtenerModulo() {
+        return this.tabla.length;
+    }
+
+    public char calcularLetra(int DNI) {
+        return tabla[DNI%obtenerModulo()];
+    }
 }

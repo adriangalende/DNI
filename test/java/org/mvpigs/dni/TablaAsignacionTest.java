@@ -21,4 +21,11 @@ public class TablaAsignacionTest{
         assertEquals('X', tabla.getLetra(10));
         assertEquals('T', tabla.getLetra(0));
     }
+
+    @Test
+    public void testCalcularLetra() {
+        DNI dni = new DNI("43182653");
+        TablaAsignacion tabla = new TablaAsignacion();
+        assertEquals('S', tabla.calcularLetra(dni.parteNumerica()));
+    }
 }
