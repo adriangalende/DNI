@@ -2,6 +2,8 @@ package org.mvpigs.dni;
 
 public class DNI {
     private String dni;
+    TablaAsignacion tabla;
+
 
     public DNI() {
         this.dni = "";
@@ -9,6 +11,7 @@ public class DNI {
 
     public DNI( String dni ) {
         this.dni = dni;
+        tabla = new TablaAsignacion();
     }
 
     // Getters & Setters
@@ -33,7 +36,7 @@ public class DNI {
     }
 
     public char obtenerLetra(){
-
+        return tabla.calcularLetra(parteNumerica());
     }
 
 
