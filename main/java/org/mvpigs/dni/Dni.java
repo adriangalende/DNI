@@ -39,5 +39,16 @@ public class DNI {
         return tabla.calcularLetra(parteNumerica());
     }
 
+    private boolean checkLongitud() {
+        if ( this.dni.length() == 9 ) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean comprobarDNI(){
+        return  checkLongitud() && parteAlfabetica() == tabla.calcularLetra(parteNumerica()); 
+    }
+
 
 }

@@ -33,4 +33,10 @@ public class DNITest {
         DNI dni = new DNI("43182655");    
         assertEquals('V', dni.obtenerLetra());
     }
+
+    @Test
+    public void testComprobarDNI() {
+        DNI dni = new DNI("43182655V");
+        assertEquals(true, dni.comprobarDNI());
+    }
 }
