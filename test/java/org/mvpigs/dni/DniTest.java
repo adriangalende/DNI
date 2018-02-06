@@ -16,4 +16,10 @@ public class DNITest {
         assertEquals(43182655, dni.parteNumerica());
     }
 
+    @Test
+    public void testParteAlfabetica(){
+        DNI dni = new DNI("43182655V");
+        assertEquals('V', dni.parteAlfabetica());
+    }
+
 }

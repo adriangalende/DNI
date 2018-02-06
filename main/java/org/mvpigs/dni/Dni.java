@@ -19,7 +19,11 @@ public class DNI {
 
     // Metodos
 
-    public int parteNumerica(){
+    public int parteNumerica() {
         return Integer.parseInt(this.dni.substring(0, 8));
+    }
+
+    public char parteAlfabetica() {
+        return this.dni.charAt(8);
     }
 }
