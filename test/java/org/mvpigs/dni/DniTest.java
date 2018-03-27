@@ -80,4 +80,48 @@ public class DNITest {
         }
 
     }
+
+    @Test
+    public void testRegex() {
+        String[] dniCorrectos = { "43182655V", "43182653S", "28441270E", "50485512Y", "28441270E", "33291020S",
+        "63354599H", "33287887X", "37490778L", "04656946K", "89751615A", "51591203H" };
+
+        for (String documento : dniCorrectos) {
+            DNI dni = new DNI(documento);
+            assertEquals(true, dni.checkParteNumerica());
+        }
+
+        //NIF formato incorrecto
+        DNI nif = new DNI("X43182655V");
+        assertEquals(false, nif.checkParteNumerica());
+
+        //NIF formato correcto
+        nif = new DNI("X4318265V");
+        assertEquals(true, nif.checkParteNumerica());
+    }
+
+    @Test
+    public void testDNIyNIF() {
+        DNI dni;
+        String[] casosTest = { // casos DNI PASS
+            "78484464T","72376173A","01817200Q","95882054E","63587725Q",
+            "26861694V","21616083Q","26868974Y","40135330P","89044648X",
+            "80117501Z","34168723S","76857238R","66714505S","66499420A",
+            "43182655V",
+            // casos NIE PASS
+            "X1234567L", "Y1234567X", "Z1234567R",
+            // casos NIE FAIL
+            "J1234567T", "H1234567T", "R1234567T",
+            "X12345678X", "X1234T", "X1234567I"
+            };
+   
+        for(String caso : casosTest){
+            dni = new DNI(caso);
+            if (dni.comprobarDNI()) {
+                System.out.println("El caso " + caso + " es valido");
+            } else {
+                System.out.println("El caso " + caso + "no es valido");
+            }
+        }
+    }
 }
